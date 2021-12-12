@@ -1,0 +1,1 @@
+# kindle-browser-adapter
