@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/dadiorchen/kindle-browser-adapter#readme",
   "dependencies": {
+    "@mozilla/readability": "^0.4.1",
+    "axios": "^0.24.0",
     "jest": "^27.4.4",
+    "jsdom": "^19.0.0",
     "loglevel": "^1.8.0",
     "pdf2html": "^2.6.0"
   }
