@@ -1,13 +1,38 @@
-<html>
+<html style="font-size: 16px">
   <style>
     body {
       font-family: sans-serif;
       padding: 1rem;
       font-size: 2rem;
     }
+
+    .controller {
+      position: fixed;
+      border: 1px gray solid;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      padding: 1rem;
+    }
+
+    .read-content {
+      margin-top: 3rem;
+    }
   </style>
+  <script script >
+    function zoom(mode){
+      const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
+      const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
+      window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
+    }
+  </script>
   <body>
-    <div id="readability-page-1" class="page"><div id="mw-content-text" lang="en" dir="ltr">
+    <div class="controller" >
+      <button onclick="javascript: zoom('out');">-</button>
+      <button onclick="javascript: zoom('in');">+</button>
+    </div>
+    <div class="read-content" >
+      <div id="readability-page-1" class="page"><div id="mw-content-text" lang="en" dir="ltr">
 <p>"Object-oriented" redirects here. For other meanings of object-oriented, see <a href="https://www.example.com/wiki/Object-orientation" title="Object-orientation">Object-orientation</a>.</p>
 
 
@@ -40,7 +65,7 @@ and
 
 
 <h2><span id="History">History</span><span><span>[</span><a href="https://www.example.com/w/index.php?title=Object-oriented_programming&amp;action=edit&amp;section=1" title="Edit section: History">edit</a><span>]</span></span></h2>
-<div><p><a href="https://www.example.com/wiki/File:Oop-uml-class-example.png"><img alt="" src="xxx" decoding="async" width="161" height="206" data-file-width="161" data-file-height="206"></a></p><p><a href="https://www.example.com/wiki/Unified_Modeling_Language" title="Unified Modeling Language">UML</a> notation for a class. This Button class has <a href="https://www.example.com/wiki/Variable_(computer_science)" title="Variable (computer science)">variables</a> for data, and <a href="https://www.example.com/wiki/Method_(computer_programming)" title="Method (computer programming)">functions</a>. Through inheritance a subclass can be created as subset of the Button class. Objects are instances of a class.</p></div>
+<div><p><a href="https://www.example.com/wiki/File:Oop-uml-class-example.png"><img alt="" src="./Oop-uml-class-example.png" decoding="async" width="161" height="206" data-file-width="161" data-file-height="206"></a></p><p><a href="https://www.example.com/wiki/Unified_Modeling_Language" title="Unified Modeling Language">UML</a> notation for a class. This Button class has <a href="https://www.example.com/wiki/Variable_(computer_science)" title="Variable (computer science)">variables</a> for data, and <a href="https://www.example.com/wiki/Method_(computer_programming)" title="Method (computer programming)">functions</a>. Through inheritance a subclass can be created as subset of the Button class. Objects are instances of a class.</p></div>
 <p>Terminology invoking "objects" and "oriented" in the modern sense of object-oriented programming made its first appearance at <a href="https://www.example.com/wiki/MIT" title="MIT">MIT</a> in the late 1950s and early 1960s. In the environment of the <a href="https://www.example.com/wiki/Artificial_intelligence" title="Artificial intelligence">artificial intelligence</a> group, as early as 1960, "object" could refer to identified items (<a href="https://www.example.com/wiki/Lisp_(programming_language)" title="Lisp (programming language)">LISP</a> atoms) with properties (attributes);<sup id="cite_ref-3"><a href="#cite_note-3">[3]</a></sup><sup id="cite_ref-4"><a href="#cite_note-4">[4]</a></sup>
 <a href="https://www.example.com/wiki/Alan_Kay" title="Alan Kay">Alan Kay</a> later cited a detailed understanding of LISP internals as a strong influence on his thinking in 1966.<sup id="cite_ref-alanKayOnOO_5-0"><a href="#cite_note-alanKayOnOO-5">[5]</a></sup>
 </p>
@@ -60,7 +85,7 @@ The object-oriented Simula programming language was used mainly by researchers i
 </p><p>In the 1970s, Smalltalk influenced the <a href="https://www.example.com/wiki/Lisp_(programming_language)#Language_innovations" title="Lisp (programming language)">Lisp community</a> to incorporate <a href="https://www.example.com/wiki/Lisp_(programming_language)#Object_systems" title="Lisp (programming language)">object-based techniques</a> that were introduced to developers via the <a href="https://www.example.com/wiki/Lisp_machine" title="Lisp machine">Lisp machine</a>. Experimentation with various extensions to Lisp (such as LOOPS and <a href="https://www.example.com/wiki/Flavors_(programming_language)" title="Flavors (programming language)">Flavors</a> introducing <a href="https://www.example.com/wiki/Multiple_inheritance" title="Multiple inheritance">multiple inheritance</a> and <a href="https://www.example.com/wiki/Mixins" title="Mixins">mixins</a>) eventually led to the <a href="https://www.example.com/wiki/Common_Lisp_Object_System" title="Common Lisp Object System">Common Lisp Object System</a>, which integrates functional programming and object-oriented programming and allows extension via a <a href="https://www.example.com/wiki/Meta-object_protocol" title="Meta-object protocol">Meta-object protocol</a>. In the 1980s, there were a few attempts to design processor architectures that included hardware support for objects in memory but these were not successful. Examples include the <a href="https://www.example.com/wiki/Intel_iAPX_432" title="Intel iAPX 432">Intel iAPX 432</a> and the <a href="https://www.example.com/wiki/Linn_Products" title="Linn Products">Linn Smart</a> <a href="https://www.example.com/wiki/Rekursiv" title="Rekursiv">Rekursiv</a>.
 </p><p>In 1981, Goldberg edited the August issue of <a href="https://www.example.com/wiki/Byte_Magazine" title="Byte Magazine">Byte Magazine</a>, introducing Smalltalk and object-oriented programming to a wider audience. In 1986, the <a href="https://www.example.com/wiki/Association_for_Computing_Machinery" title="Association for Computing Machinery">Association for Computing Machinery</a> organised the first <i>Conference on Object-Oriented Programming, Systems, Languages, and Applications</i> (OOPSLA), which was unexpectedly attended by 1,000 people. In the mid-1980s <a href="https://www.example.com/wiki/Objective-C" title="Objective-C">Objective-C</a> was developed by <a href="https://www.example.com/wiki/Brad_Cox" title="Brad Cox">Brad Cox</a>, who had used Smalltalk at <a href="https://www.example.com/wiki/ITT_Inc." title="ITT Inc.">ITT Inc.</a>, and <a href="https://www.example.com/wiki/Bjarne_Stroustrup" title="Bjarne Stroustrup">Bjarne Stroustrup</a>, who had used Simula for his PhD thesis, eventually went to create the object-oriented <a href="https://www.example.com/wiki/C%2B%2B" title="C++">C++</a>.<sup id="cite_ref-Bertrand_Meyer_2009_329_10-1"><a href="#cite_note-Bertrand_Meyer_2009_329-10">[10]</a></sup> In 1985, <a href="https://www.example.com/wiki/Bertrand_Meyer" title="Bertrand Meyer">Bertrand Meyer</a> also produced the first design of the <a href="https://www.example.com/wiki/Eiffel_(programming_language)" title="Eiffel (programming language)">Eiffel language</a>. Focused on software quality, Eiffel is a purely object-oriented programming language and a notation supporting the entire software lifecycle. Meyer described the Eiffel software development method, based on a small number of key ideas from software engineering and computer science, in <a href="https://www.example.com/wiki/Object-Oriented_Software_Construction" title="Object-Oriented Software Construction">Object-Oriented Software Construction</a>. Essential to the quality focus of Eiffel is Meyer's reliability mechanism, <a href="https://www.example.com/wiki/Design_by_Contract" title="Design by Contract">Design by Contract</a>, which is an integral part of both the method and language.
 </p>
-<div><p><a href="https://www.example.com/wiki/File:Tiobeindex.png"><img alt="" src="xxx" decoding="async" width="350" height="171" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tiobeindex.png/525px-Tiobeindex.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tiobeindex.png/700px-Tiobeindex.png 2x" data-file-width="906" data-file-height="443"></a></p></div>
+<div><p><a href="https://www.example.com/wiki/File:Tiobeindex.png"><img alt="" src="./350px-Tiobeindex.png" decoding="async" width="350" height="171" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tiobeindex.png/525px-Tiobeindex.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Tiobeindex.png/700px-Tiobeindex.png 2x" data-file-width="906" data-file-height="443"></a></p></div>
 <p>In the early and mid-1990s object-oriented programming developed as the dominant programming <a href="https://www.example.com/wiki/Paradigm" title="Paradigm">paradigm</a> when programming languages supporting the techniques became widely available. These included Visual <a href="https://www.example.com/wiki/FoxPro" title="FoxPro">FoxPro</a> 3.0,<sup id="cite_ref-12"><a href="#cite_note-12">[12]</a></sup><sup id="cite_ref-13"><a href="#cite_note-13">[13]</a></sup><sup id="cite_ref-14"><a href="#cite_note-14">[14]</a></sup> <a href="https://www.example.com/wiki/C%2B%2B" title="C++">C++</a>,<sup id="cite_ref-15"><a href="#cite_note-15">[15]</a></sup> and <a href="https://www.example.com/wiki/Delphi_(programming_language)" title="Delphi (programming language)">Delphi</a><sup>[<i><a href="https://www.example.com/wiki/Wikipedia:Citation_needed" title="Wikipedia:Citation needed"><span title="This claim needs references to reliable sources. (February 2010)">citation needed</span></a></i>]</sup>. Its dominance was further enhanced by the rising popularity of <a href="https://www.example.com/wiki/Graphical_user_interface" title="Graphical user interface">graphical user interfaces</a>, which rely heavily upon object-oriented programming techniques. An example of a closely related dynamic GUI library and OOP language can be found in the <a href="https://www.example.com/wiki/Cocoa_(software)" title="Cocoa (software)">Cocoa</a> frameworks on <a href="https://www.example.com/wiki/Mac_OS_X" title="Mac OS X">Mac OS X</a>, written in <a href="https://www.example.com/wiki/Objective-C" title="Objective-C">Objective-C</a>, an object-oriented, dynamic messaging extension to C based on Smalltalk. OOP toolkits also enhanced the popularity of <a href="https://www.example.com/wiki/Event-driven_programming" title="Event-driven programming">event-driven programming</a> (although this concept is not limited to OOP).
 </p><p>At <a href="https://www.example.com/wiki/ETH_Z%C3%BCrich" title="ETH Zürich">ETH Zürich</a>, <a href="https://www.example.com/wiki/Niklaus_Wirth" title="Niklaus Wirth">Niklaus Wirth</a> and his colleagues had also been investigating such topics as <a href="https://www.example.com/wiki/Data_abstraction" title="Data abstraction">data abstraction</a> and <a href="https://www.example.com/wiki/Modularity_(programming)" title="Modularity (programming)">modular programming</a> (although this had been in common use in the 1960s or earlier). <a href="https://www.example.com/wiki/Modula-2" title="Modula-2">Modula-2</a> (1978) included both, and their succeeding design, <a href="https://www.example.com/wiki/Oberon_(programming_language)" title="Oberon (programming language)">Oberon</a>, included a distinctive approach to object orientation, classes, and such.
 </p><p>Object-oriented features have been added to many previously existing languages, including <a href="https://www.example.com/wiki/Ada_(programming_language)" title="Ada (programming language)">Ada</a>, <a href="https://www.example.com/wiki/BASIC" title="BASIC">BASIC</a>, <a href="https://www.example.com/wiki/Fortran" title="Fortran">Fortran</a>, <a href="https://www.example.com/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a>, and <a href="https://www.example.com/wiki/COBOL" title="COBOL">COBOL</a>. Adding these features to languages that were not initially designed for them often led to problems with compatibility and maintainability of code.
@@ -232,7 +257,7 @@ For example, the <a href="https://www.example.com/wiki/Circle-ellipse_problem" t
 </p>
 <h2><span id="See_also">See also</span><span><span>[</span><a href="https://www.example.com/w/index.php?title=Object-oriented_programming&amp;action=edit&amp;section=24" title="Edit section: See also">edit</a><span>]</span></span></h2>
 <div>
-<ul><li><a href="https://www.example.com/wiki/File:Octicons-terminal.svg"><img alt="Octicons-terminal.svg" src="xxx" decoding="async" width="24" height="28" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/37px-Octicons-terminal.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/49px-Octicons-terminal.svg.png 2x" data-file-width="896" data-file-height="1024"></a>&nbsp;<a href="https://www.example.com/wiki/Portal:Computer_programming" title="Portal:Computer programming">Computer programming portal</a></li></ul>
+<ul><li><a href="https://www.example.com/wiki/File:Octicons-terminal.svg"><img alt="Octicons-terminal.svg" src="./24px-Octicons-terminal.svg.png" decoding="async" width="24" height="28" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/37px-Octicons-terminal.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Octicons-terminal.svg/49px-Octicons-terminal.svg.png 2x" data-file-width="896" data-file-height="1024"></a>&nbsp;<a href="https://www.example.com/wiki/Portal:Computer_programming" title="Portal:Computer programming">Computer programming portal</a></li></ul>
 </div>
 <ul><li><a href="https://www.example.com/wiki/Comparison_of_programming_languages_(object-oriented_programming)" title="Comparison of programming languages (object-oriented programming)">Comparison of programming languages (object-oriented programming)</a></li>
 <li><a href="https://www.example.com/wiki/Comparison_of_programming_paradigms" title="Comparison of programming paradigms">Comparison of programming paradigms</a></li>
@@ -433,5 +458,6 @@ Transclusion expansion time report (%,ms,calls,template)
 <!-- Saved in parser cache with key enwiki:pcache:idhash:27471338-0!canonical and timestamp 20211211065904 and revision id 1057169575. Serialized with JSON.
  -->
 </div></div>
+    </div>
   </body>
 </html>

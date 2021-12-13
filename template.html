@@ -1,12 +1,38 @@
-<html>
+<html style="font-size: 16px">
   <style>
     body {
       font-family: sans-serif;
       padding: 1rem;
       font-size: 2rem;
     }
+
+    .controller {
+      position: fixed;
+      border: 1px gray solid;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      padding: 1rem;
+    }
+
+    .read-content {
+      margin-top: 3rem;
+    }
   </style>
+  <script script >
+    function zoom(mode){
+      const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
+      const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
+      window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
+    }
+  </script>
   <body>
-    ${content}
+    <div class="controller" >
+      <button onclick="javascript: zoom('out');">-</button>
+      <button onclick="javascript: zoom('in');">+</button>
+    </div>
+    <div class="read-content" >
+      ${content}
+    </div>
   </body>
 </html>
