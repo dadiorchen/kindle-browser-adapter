@@ -1,0 +1,278 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="pdf:PDFVersion" content="1.4"/>
+<meta name="xmp:CreatorTool" content="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"/>
+<meta name="pdf:hasXFA" content="false"/>
+<meta name="access_permission:modify_annotations" content="true"/>
+<meta name="access_permission:can_print_degraded" content="true"/>
+<meta name="dcterms:created" content="2021-01-25T14:36:01Z"/>
+<meta name="dcterms:modified" content="2021-01-25T14:36:01Z"/>
+<meta name="dc:format" content="application/pdf; version=1.4"/>
+<meta name="pdf:docinfo:creator_tool" content="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36"/>
+<meta name="access_permission:fill_in_form" content="true"/>
+<meta name="pdf:docinfo:modified" content="2021-01-25T14:36:01Z"/>
+<meta name="pdf:encrypted" content="false"/>
+<meta name="Content-Length" content="575043"/>
+<meta name="pdf:hasMarkedContent" content="false"/>
+<meta name="Content-Type" content="application/pdf"/>
+<meta name="pdf:producer" content="Skia/PDF m88"/>
+<meta name="access_permission:extract_for_accessibility" content="true"/>
+<meta name="access_permission:assemble_document" content="true"/>
+<meta name="xmpTPg:NPages" content="3"/>
+<meta name="resourceName" content="test.pdf"/>
+<meta name="pdf:hasXMP" content="false"/>
+<meta name="access_permission:extract_content" content="true"/>
+<meta name="access_permission:can_print" content="true"/>
+<meta name="X-TIKA:Parsed-By" content="org.apache.tika.parser.DefaultParser"/>
+<meta name="X-TIKA:Parsed-By" content="org.apache.tika.parser.pdf.PDFParser"/>
+<meta name="access_permission:can_modify" content="true"/>
+<meta name="pdf:docinfo:producer" content="Skia/PDF m88"/>
+<meta name="pdf:docinfo:created" content="2021-01-25T14:36:01Z"/>
+<title></title>
+</head>
+<body><div class="page"><p/>
+<p>1/25/2021 PostgreSQL: Documentation: 9.3: SET TRANSACTION
+</p>
+<p>https://www.postgresql.org/docs/9.3/sql-set-transaction.html 1/3
+</p>
+<p>12th November 2020: PostgreSQL 13.1, 12.5, 11.10, 10.15, 9.6.20, &amp; 9.5.24 Released!
+</p>
+<p>This documentation is for an unsupported version of PostgreSQL. 
+You may want to view the same page for the current version, or one of the other supported versions listed above instead.
+</p>
+<p>PostgreSQL 9.3.25 Documentation
+Prev Up Next
+</p>
+<p>SET TRANSACTION
+</p>
+<p>Name
+</p>
+<p>SET TRANSACTION&nbsp;--&nbsp;set the characteristics of the current transaction
+</p>
+<p>Synopsis
+</p>
+<p>SET TRANSACTION transaction_mode [, ...] 
+</p>
+<p>SET TRANSACTION SNAPSHOT snapshot_id 
+</p>
+<p>SET SESSION CHARACTERISTICS AS TRANSACTION transaction_mode [, ...] 
+</p>
+<p> 
+</p>
+<p>where transaction_mode is one of: 
+</p>
+<p> 
+</p>
+<p>    ISOLATION LEVEL { SERIALIZABLE | REPEATABLE READ | READ COMMITTED | READ 
+</p>
+<p>UNCOMMITTED } 
+</p>
+<p>    READ WRITE | READ ONLY 
+</p>
+<p>    [ NOT ] DEFERRABLE
+</p>
+<p>Description
+</p>
+<p>The SET TRANSACTION command sets the characteristics of the current transaction. It has no e�ect on any
+subsequent transactions. SET SESSION CHARACTERISTICS sets the default transaction characteristics for
+subsequent transactions of a session. These defaults can be overridden by SET TRANSACTION for an
+individual transaction.
+</p>
+<p>The available transaction characteristics are the transaction isolation level, the transaction access mode
+(read/write or read-only), and the deferrable mode. In addition, a snapshot can be selected, though only for
+the current transaction, not as a session default.
+</p>
+<p>The isolation level of a transaction determines what data the transaction can see when other transactions
+are running concurrently:
+</p>
+<p>READ COMMITTED
+</p>
+<p>A statement can only see rows committed before it began. This is the default.
+</p>
+<p>REPEATABLE READ
+</p>
+<p>All statements of the current transaction can only see rows committed before the �rst query or
+data-modi�cation statement was executed in this transaction.
+</p>
+<p>SERIALIZABLE
+</p>
+<p>Documentation &rarr; PostgreSQL 9.3
+Supported Versions: Current (13) / 12 / 11 / 10 / 9.6 / 9.5
+Development Versions: devel
+Unsupported versions: 9.4 / 9.3 / 9.2 / 9.1 / 9.0 / 8.4 / 8.3 /
+8.2 / 8.1 / 8.0 / 7.4 / 7.3 / 7.2 / 7.1
+</p>
+<p>Search the documentation for...
+</p>
+<p>&nbsp;
+</p>
+<p>&nbsp;
+</p>
+<p>&nbsp;</p>
+<p/>
+<div class="annotation"><a href="https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/">https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/current/sql-set-transaction.html">https://www.postgresql.org/docs/current/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/index.html">https://www.postgresql.org/docs/9.3/index.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-set-session-authorization.html">https://www.postgresql.org/docs/9.3/sql-set-session-authorization.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-commands.html">https://www.postgresql.org/docs/9.3/sql-commands.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-show.html">https://www.postgresql.org/docs/9.3/sql-show.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/">https://www.postgresql.org/docs/</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/index.html">https://www.postgresql.org/docs/9.3/index.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/current/sql-set-transaction.html">https://www.postgresql.org/docs/current/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/13/sql-set-transaction.html">https://www.postgresql.org/docs/13/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/12/sql-set-transaction.html">https://www.postgresql.org/docs/12/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/11/sql-set-transaction.html">https://www.postgresql.org/docs/11/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/10/sql-set-transaction.html">https://www.postgresql.org/docs/10/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.6/sql-set-transaction.html">https://www.postgresql.org/docs/9.6/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.5/sql-set-transaction.html">https://www.postgresql.org/docs/9.5/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/devel/sql-set-transaction.html">https://www.postgresql.org/docs/devel/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.4/sql-set-transaction.html">https://www.postgresql.org/docs/9.4/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-set-transaction.html">https://www.postgresql.org/docs/9.3/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.2/sql-set-transaction.html">https://www.postgresql.org/docs/9.2/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.1/sql-set-transaction.html">https://www.postgresql.org/docs/9.1/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.0/sql-set-transaction.html">https://www.postgresql.org/docs/9.0/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/8.4/sql-set-transaction.html">https://www.postgresql.org/docs/8.4/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/8.3/sql-set-transaction.html">https://www.postgresql.org/docs/8.3/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/8.2/sql-set-transaction.html">https://www.postgresql.org/docs/8.2/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/8.1/sql-set-transaction.html">https://www.postgresql.org/docs/8.1/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/8.0/sql-set-transaction.html">https://www.postgresql.org/docs/8.0/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/7.4/sql-set-transaction.html">https://www.postgresql.org/docs/7.4/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/7.3/sql-set-transaction.html">https://www.postgresql.org/docs/7.3/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/7.2/sql-set-transaction.html">https://www.postgresql.org/docs/7.2/sql-set-transaction.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/7.1/sql-set-transaction.html">https://www.postgresql.org/docs/7.1/sql-set-transaction.html</a></div>
+</div>
+<div class="page"><p/>
+<p>1/25/2021 PostgreSQL: Documentation: 9.3: SET TRANSACTION
+</p>
+<p>https://www.postgresql.org/docs/9.3/sql-set-transaction.html 2/3
+</p>
+<p>All statements of the current transaction can only see rows committed before the �rst query or
+data-modi�cation statement was executed in this transaction. If a pattern of reads and writes
+among concurrent serializable transactions would create a situation which could not have
+occurred for any serial (one-at-a-time) execution of those transactions, one of them will be rolled
+back with a serialization_failure error.
+</p>
+<p>The SQL standard de�nes one additional level, READ UNCOMMITTED. In PostgreSQL READ UNCOMMITTED is
+treated as READ COMMITTED.
+</p>
+<p>The transaction isolation level cannot be changed after the �rst query or data-modi�cation statement
+(SELECT, INSERT, DELETE, UPDATE, FETCH, or COPY) of a transaction has been executed. See Chapter 13
+for more information about transaction isolation and concurrency control.
+</p>
+<p>The transaction access mode determines whether the transaction is read/write or read-only. Read/write is
+the default. When a transaction is read-only, the following SQL commands are disallowed: INSERT, UPDATE,
+DELETE, and COPY FROM if the table they would write to is not a temporary table; all CREATE, ALTER, and
+DROP commands; COMMENT, GRANT, REVOKE, TRUNCATE; and EXPLAIN ANALYZE and EXECUTE if the
+command they would execute is among those listed. This is a high-level notion of read-only that does not
+prevent all writes to disk.
+</p>
+<p>The DEFERRABLE transaction property has no e�ect unless the transaction is also SERIALIZABLE and
+READ ONLY. When all three of these properties are selected for a transaction, the transaction may block
+when �rst acquiring its snapshot, after which it is able to run without the normal overhead of a
+SERIALIZABLE transaction and without any risk of contributing to or being canceled by a serialization
+failure. This mode is well suited for long-running reports or backups.
+</p>
+<p>The SET TRANSACTION SNAPSHOT command allows a new transaction to run with the same snapshot as
+an existing transaction. The pre-existing transaction must have exported its snapshot with the
+pg_export_snapshot function (see Section 9.26.5). That function returns a snapshot identi�er, which
+must be given to SET TRANSACTION SNAPSHOT to specify which snapshot is to be imported. The identi�er
+must be written as a string literal in this command, for example '000003A1-1'. SET TRANSACTION
+SNAPSHOT can only be executed at the start of a transaction, before the �rst query or data-modi�cation
+statement (SELECT, INSERT, DELETE, UPDATE, FETCH, or COPY) of the transaction. Furthermore, the
+transaction must already be set to SERIALIZABLE or REPEATABLE READ isolation level (otherwise, the
+snapshot would be discarded immediately, since READ COMMITTED mode takes a new snapshot for each
+command). If the importing transaction uses SERIALIZABLE isolation level, then the transaction that
+exported the snapshot must also use that isolation level. Also, a non-read-only serializable transaction
+cannot import a snapshot from a read-only transaction.
+</p>
+<p>Notes
+</p>
+<p>If SET TRANSACTION is executed without a prior START TRANSACTION or BEGIN, it will appear to have no
+e�ect, since the transaction will immediately end.
+</p>
+<p>It is possible to dispense with SET TRANSACTION by instead specifying the desired transaction_modes
+in BEGIN or START TRANSACTION. But that option is not available for SET TRANSACTION SNAPSHOT.
+</p>
+<p>The session default transaction modes can also be set by setting the con�guration parameters
+default_transaction_isolation, default_transaction_read_only, and default_transaction_deferrable. (In fact
+SET SESSION CHARACTERISTICS is just a verbose equivalent for setting these variables with SET.) This
+means the defaults can be set in the con�guration �le, via ALTER DATABASE, etc. Consult Chapter 18 for
+more information.
+</p>
+<p>Examples
+</p>
+<p>To begin a new transaction with the same snapshot as an already existing transaction, �rst export the
+snapshot from the existing transaction. That will return the snapshot identi�er, for example:
+</p>
+<p>&nbsp;
+</p>
+<p>&nbsp;</p>
+<p/>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/mvcc.html">https://www.postgresql.org/docs/9.3/mvcc.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/functions-admin.html#FUNCTIONS-SNAPSHOT-SYNCHRONIZATION">https://www.postgresql.org/docs/9.3/functions-admin.html#FUNCTIONS-SNAPSHOT-SYNCHRONIZATION</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-ISOLATION">https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-ISOLATION</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY">https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-READ-ONLY</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-DEFERRABLE">https://www.postgresql.org/docs/9.3/runtime-config-client.html#GUC-DEFAULT-TRANSACTION-DEFERRABLE</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/runtime-config.html">https://www.postgresql.org/docs/9.3/runtime-config.html</a></div>
+</div>
+<div class="page"><p/>
+<p>1/25/2021 PostgreSQL: Documentation: 9.3: SET TRANSACTION
+</p>
+<p>https://www.postgresql.org/docs/9.3/sql-set-transaction.html 3/3
+</p>
+<p>Privacy Policy | Code of Conduct | About PostgreSQL | Contact 
+Copyright &copy; 1996-2021 The PostgreSQL Global Development Group
+</p>
+<p>BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ; 
+</p>
+<p>SELECT pg_export_snapshot(); 
+</p>
+<p> pg_export_snapshot 
+</p>
+<p>-------------------- 
+</p>
+<p> 000003A1-1 
+</p>
+<p>(1 row)
+</p>
+<p>Then give the snapshot identi�er in a SET TRANSACTION SNAPSHOT command at the beginning of the
+newly opened transaction:
+</p>
+<p>BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ; 
+</p>
+<p>SET TRANSACTION SNAPSHOT '000003A1-1';
+</p>
+<p>Compatibility
+</p>
+<p>These commands are de�ned in the SQL standard, except for the DEFERRABLE transaction mode and the
+SET TRANSACTION SNAPSHOT form, which are PostgreSQL extensions.
+</p>
+<p>SERIALIZABLE is the default transaction isolation level in the standard. In PostgreSQL the default is
+ordinarily READ COMMITTED, but you can change it as mentioned above.
+</p>
+<p>In the SQL standard, there is one other transaction characteristic that can be set with these commands: the
+size of the diagnostics area. This concept is speci�c to embedded SQL, and therefore is not implemented in
+the PostgreSQL server.
+</p>
+<p>The SQL standard requires commas between successive transaction_modes, but for historical reasons
+PostgreSQL allows the commas to be omitted.
+</p>
+<p>Prev Home Next
+SET SESSION AUTHORIZATION Up SHOW
+</p>
+<p>&nbsp;
+</p>
+<p> </p>
+<p/>
+<div class="annotation"><a href="https://www.postgresql.org/about/privacypolicy">https://www.postgresql.org/about/privacypolicy</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/about/policies/coc/">https://www.postgresql.org/about/policies/coc/</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/about/">https://www.postgresql.org/about/</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/about/contact/">https://www.postgresql.org/about/contact/</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-set-session-authorization.html">https://www.postgresql.org/docs/9.3/sql-set-session-authorization.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/index.html">https://www.postgresql.org/docs/9.3/index.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-show.html">https://www.postgresql.org/docs/9.3/sql-show.html</a></div>
+<div class="annotation"><a href="https://www.postgresql.org/docs/9.3/sql-commands.html">https://www.postgresql.org/docs/9.3/sql-commands.html</a></div>
+<div class="annotation"><a href="https://twitter.com/postgresql">https://twitter.com/postgresql</a></div>
+<div class="annotation"><a href="https://git.postgresql.org/gitweb/?p=postgresql.git">https://git.postgresql.org/gitweb/?p=postgresql.git</a></div>
+</div>
+</body></html>
