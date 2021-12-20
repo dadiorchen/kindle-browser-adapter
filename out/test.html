@@ -1,0 +1,24 @@
+<html>
+  <body>
+    <script>
+      document.write('<pre>');
+
+alert(window.HTMLPreElement);
+
+console.log('HTMLPreELement' in window);
+
+Object.getOwnPropertyNames(window)
+    .sort()
+    .forEach(function(v, x) {
+        if (v === 'HTMLPreElement')
+            document.write('<h2>' + v + '</h2>');
+        else
+            document.writeln(v);
+    });
+
+
+document.write('</pre>');
+
+    </script>
+  </body>
+</html>

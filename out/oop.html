@@ -19,19 +19,80 @@
       margin-top: 3rem;
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script script >
+    //alert($(window).width());
+    // alert($(window).height());
+    // alert(window.navigator.userAgent)
     function zoom(mode){
       const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
       const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
       window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
     }
+
+    function scroll(){
+      window.scrollBy(0, 200);
+    }
+
+    // function update(){
+    //   window.history.pushState('treetrakcer', '', '#xxxxx');
+    // }
+    // add event listener when page is loaded
+    window.addEventListener('load', function(){
+      // alert("loaded");
+      // alert("cookie: " + document.cookie);
+      // add event listener when user mouse up
+      // window.addEventListener('mouseup', function(){
+      //   alert("mouse up");
+      //   // update();
+      //   const scrollPosition = window.pageYOffset;
+      //   document.cookie = "bookmark=" + scrollPosition;
+      //   // alert("scroll" + $(document).scrollTop());
+      //   var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+      //   alert("scroll:" + window.scrollY + "|" + window.scrollTop );
+      // });
+
+       //add event listener when user scroll finished
+        window.addEventListener('scrollxxx', function(e){
+          // update();
+          // get the scroll position
+          const scrollPosition = window.pageYOffset;
+          document.cookie = "bookmark=" + scrollPosition;
+         //  alert("scroll" + $(document).scrollTop());
+         const keys = Object.getOwnPropertyNames(e)
+          .sort()
+          .reduce(function(a,c){
+            return a + '|' + c;
+          }, '')
+        // alert("keys:"+ keys);
+        alert("scrollY:" + e.currentTarget.scrollY);
+      });
+      // window.addEventListener('mousewheel', function(e){
+      //   // update();
+      //   // get the scroll position
+      //   // alert("scroll" + $(document).scrollTop());
+      //   alert("e:"+ e);
+      // });
+
+      
+
+      // // add event listener when user click on button
+      // document.getElementById('zoom-in').addEventListener('click', function(){
+      //   zoom('in');
+      // });
+      // document.getElementById('zoom-out').addEventListener('click', function(){
+      //   zoom('out');
+      // });
+    });
   </script>
   <body>
     <div class="controller" >
       <button onclick="javascript: zoom('out');">-</button>
       <button onclick="javascript: zoom('in');">+</button>
+      <button onclick="javascript: update();">U</button>
+      <button onclick="javascript: scroll();">S</button>
     </div>
-    <div class="read-content" >
+    <div class="read-content" id="div1">
       <div id="readability-page-1" class="page"><div id="mw-content-text" lang="en" dir="ltr">
 <p>"Object-oriented" redirects here. For other meanings of object-oriented, see <a href="https://www.example.com/wiki/Object-orientation" title="Object-orientation">Object-orientation</a>.</p>
 
