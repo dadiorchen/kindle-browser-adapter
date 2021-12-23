@@ -14,9 +14,10 @@ class PageSliter{
   _parse(){
     this.pages = [];
     const dom = new JSDOM(this.html);
-    const contentElement = dom.window.document.querySelector("body");
+    const contentElement = dom.window.document.querySelector("#readability-page-1");
     log.warn("contentElement", contentElement);
-    const childrenNodes = contentElement.childNodes;
+    const contentElementReal = contentElement.querySelector("#mw-content-text");
+    const childrenNodes = contentElementReal.childNodes;
     let pageLines = 0;
     let pageHtml = '';
     for(const node of childrenNodes){
