@@ -1,5 +1,6 @@
 const log = require("loglevel");
 const PageSpliter = require("./PageSpliter");
+const fs = require("fs");
 
 it.only("page 1", async () => {
 
@@ -435,6 +436,16 @@ it.only("page 1", async () => {
     linesPerPage: 15,
   });
   expect(pageSpliter.getPageCount()).toBeGreaterThan(30);
+  
+  // output the first page
+  for(let i = 0; i < pageSpliter.getPageCount(); i++) {
+    const page = pageSpliter.getPage(i);
+    const template = fs.readFileSync("./template.html", "utf8");
+    expect(template).toMatch(/^\<html/);
+    expect(template).toMatch(/\$\{content\}/);
+    const result = template.replace("${content}", page);
+    fs.writeFileSync(`./out/oop/${i}.html`, result);
+  }
 })
 
 

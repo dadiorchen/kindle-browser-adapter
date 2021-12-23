@@ -1,0 +1,119 @@
+<html style="font-size: 16px">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    .controller {
+      position: fixed;
+      border: 1px gray solid;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      padding: .5rem;
+    }
+
+    .controller>button {
+      width: 100px;
+    }
+
+    .read-content {
+      margin-top: 3rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script script >
+    //alert($(window).width());
+    // alert($(window).height());
+    // alert(window.navigator.userAgent)
+    function zoom(mode){
+      const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
+      const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
+      window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
+    }
+
+    function scroll(){
+      window.scrollBy(0, 200);
+    }
+
+    function page(dir){
+      const currentPageString = window.location.href.match(/^.*?(\d+)$/)[1];
+      const currentPage = parseInt(currentPageString);
+      const newPage = dir === 'next' ? currentPage + 1 : currentPage - 1;
+      window.location.href = window.location.href = newPage;
+    }
+
+    // function update(){
+    //   window.history.pushState('treetrakcer', '', '#xxxxx');
+    // }
+    // add event listener when page is loaded
+    window.addEventListener('load', function(){
+      // alert("loaded");
+      // alert("cookie: " + document.cookie);
+      // add event listener when user mouse up
+      // window.addEventListener('mouseup', function(){
+      //   alert("mouse up");
+      //   // update();
+      //   const scrollPosition = window.pageYOffset;
+      //   document.cookie = "bookmark=" + scrollPosition;
+      //   // alert("scroll" + $(document).scrollTop());
+      //   var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+      //   alert("scroll:" + window.scrollY + "|" + window.scrollTop );
+      // });
+
+       //add event listener when user scroll finished
+        window.addEventListener('scrollxxx', function(e){
+          // update();
+          // get the scroll position
+          const scrollPosition = window.pageYOffset;
+          document.cookie = "bookmark=" + scrollPosition;
+         //  alert("scroll" + $(document).scrollTop());
+         const keys = Object.getOwnPropertyNames(e)
+          .sort()
+          .reduce(function(a,c){
+            return a + '|' + c;
+          }, '')
+        // alert("keys:"+ keys);
+        alert("scrollY:" + e.currentTarget.scrollY);
+      });
+      // window.addEventListener('mousewheel', function(e){
+      //   // update();
+      //   // get the scroll position
+      //   // alert("scroll" + $(document).scrollTop());
+      //   alert("e:"+ e);
+      // });
+
+      
+
+      // // add event listener when user click on button
+      // document.getElementById('zoom-in').addEventListener('click', function(){
+      //   zoom('in');
+      // });
+      // document.getElementById('zoom-out').addEventListener('click', function(){
+      //   zoom('out');
+      // });
+    });
+  </script>
+  <body>
+    <div class="controller" >
+      <button onclick="javascript: zoom('out');">-</button>
+      <button onclick="javascript: zoom('in');">+</button>
+      <!--
+      <button onclick="javascript: update();">U</button>
+      <button onclick="javascript: scroll();">S</button>
+      -->
+      <button onclick="javascript: page('pre');">&lsaquo;</button>
+      <button onclick="javascript: page('next');">&rsaquo;</button>
+    </div>
+    <div class="read-content" id="div1">
+      <h3><span id="Gang_of_Four_design_patterns">Gang of Four design patterns</span><span><span>[</span><a href="https://www.example.com/w/index.php?title=Object-oriented_programming&amp;action=edit&amp;section=16" title="Edit section: Gang of Four design patterns">edit</a><span>]</span></span></h3><p><i><a href="https://www.example.com/wiki/Design_Patterns_(book)" title="Design Patterns (book)">Design Patterns: Elements of Reusable Object-Oriented Software</a></i> is an influential book published in 1994 by <a href="https://www.example.com/wiki/Erich_Gamma" title="Erich Gamma">Erich Gamma</a>, <a href="https://www.example.com/wiki/Richard_Helm" title="Richard Helm">Richard Helm</a>, <a href="https://www.example.com/wiki/Ralph_Johnson_(computer_scientist)" title="Ralph Johnson (computer scientist)">Ralph Johnson</a>, and <a href="https://www.example.com/wiki/John_Vlissides" title="John Vlissides">John Vlissides</a>, often referred to humorously as the "Gang of Four". Along with exploring the capabilities and pitfalls of object-oriented programming, it describes 23 common programming problems and patterns for solving them.
+  As of April 2007, the book was in its 36th printing.
+  </p><p>The book describes the following patterns:
+  </p><ul><li><i><a href="https://www.example.com/wiki/Creational_pattern" title="Creational pattern">Creational patterns</a></i> (5): <a href="https://www.example.com/wiki/Factory_method_pattern" title="Factory method pattern">Factory method pattern</a>, <a href="https://www.example.com/wiki/Abstract_factory_pattern" title="Abstract factory pattern">Abstract factory pattern</a>, <a href="https://www.example.com/wiki/Singleton_pattern" title="Singleton pattern">Singleton pattern</a>, <a href="https://www.example.com/wiki/Builder_pattern" title="Builder pattern">Builder pattern</a>, <a href="https://www.example.com/wiki/Prototype_pattern" title="Prototype pattern">Prototype pattern</a></li>
+  <li><i><a href="https://www.example.com/wiki/Structural_pattern" title="Structural pattern">Structural patterns</a></i> (7): <a href="https://www.example.com/wiki/Adapter_pattern" title="Adapter pattern">Adapter pattern</a>, <a href="https://www.example.com/wiki/Bridge_pattern" title="Bridge pattern">Bridge pattern</a>, <a href="https://www.example.com/wiki/Composite_pattern" title="Composite pattern">Composite pattern</a>, <a href="https://www.example.com/wiki/Decorator_pattern" title="Decorator pattern">Decorator pattern</a>, <a href="https://www.example.com/wiki/Facade_pattern" title="Facade pattern">Facade pattern</a>, <a href="https://www.example.com/wiki/Flyweight_pattern" title="Flyweight pattern">Flyweight pattern</a>, <a href="https://www.example.com/wiki/Proxy_pattern" title="Proxy pattern">Proxy pattern</a></li>
+  <li><i><a href="https://www.example.com/wiki/Behavioral_pattern" title="Behavioral pattern">Behavioral patterns</a></i> (11): <a href="https://www.example.com/wiki/Chain-of-responsibility_pattern" title="Chain-of-responsibility pattern">Chain-of-responsibility pattern</a>, <a href="https://www.example.com/wiki/Command_pattern" title="Command pattern">Command pattern</a>, <a href="https://www.example.com/wiki/Interpreter_pattern" title="Interpreter pattern">Interpreter pattern</a>, <a href="https://www.example.com/wiki/Iterator_pattern" title="Iterator pattern">Iterator pattern</a>, <a href="https://www.example.com/wiki/Mediator_pattern" title="Mediator pattern">Mediator pattern</a>, <a href="https://www.example.com/wiki/Memento_pattern" title="Memento pattern">Memento pattern</a>, <a href="https://www.example.com/wiki/Observer_pattern" title="Observer pattern">Observer pattern</a>, <a href="https://www.example.com/wiki/State_pattern" title="State pattern">State pattern</a>, <a href="https://www.example.com/wiki/Strategy_pattern" title="Strategy pattern">Strategy pattern</a>, <a href="https://www.example.com/wiki/Template_method_pattern" title="Template method pattern">Template method pattern</a>, <a href="https://www.example.com/wiki/Visitor_pattern" title="Visitor pattern">Visitor pattern</a></li></ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,130 @@
+<html style="font-size: 16px">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    .controller {
+      position: fixed;
+      border: 1px gray solid;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      padding: .5rem;
+    }
+
+    .controller>button {
+      width: 100px;
+    }
+
+    .read-content {
+      margin-top: 3rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script script >
+    //alert($(window).width());
+    // alert($(window).height());
+    // alert(window.navigator.userAgent)
+    function zoom(mode){
+      const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
+      const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
+      window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
+    }
+
+    function scroll(){
+      window.scrollBy(0, 200);
+    }
+
+    function page(dir){
+      const currentPageString = window.location.href.match(/^.*?(\d+)$/)[1];
+      const currentPage = parseInt(currentPageString);
+      const newPage = dir === 'next' ? currentPage + 1 : currentPage - 1;
+      window.location.href = window.location.href = newPage;
+    }
+
+    // function update(){
+    //   window.history.pushState('treetrakcer', '', '#xxxxx');
+    // }
+    // add event listener when page is loaded
+    window.addEventListener('load', function(){
+      // alert("loaded");
+      // alert("cookie: " + document.cookie);
+      // add event listener when user mouse up
+      // window.addEventListener('mouseup', function(){
+      //   alert("mouse up");
+      //   // update();
+      //   const scrollPosition = window.pageYOffset;
+      //   document.cookie = "bookmark=" + scrollPosition;
+      //   // alert("scroll" + $(document).scrollTop());
+      //   var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+      //   alert("scroll:" + window.scrollY + "|" + window.scrollTop );
+      // });
+
+       //add event listener when user scroll finished
+        window.addEventListener('scrollxxx', function(e){
+          // update();
+          // get the scroll position
+          const scrollPosition = window.pageYOffset;
+          document.cookie = "bookmark=" + scrollPosition;
+         //  alert("scroll" + $(document).scrollTop());
+         const keys = Object.getOwnPropertyNames(e)
+          .sort()
+          .reduce(function(a,c){
+            return a + '|' + c;
+          }, '')
+        // alert("keys:"+ keys);
+        alert("scrollY:" + e.currentTarget.scrollY);
+      });
+      // window.addEventListener('mousewheel', function(e){
+      //   // update();
+      //   // get the scroll position
+      //   // alert("scroll" + $(document).scrollTop());
+      //   alert("e:"+ e);
+      // });
+
+      
+
+      // // add event listener when user click on button
+      // document.getElementById('zoom-in').addEventListener('click', function(){
+      //   zoom('in');
+      // });
+      // document.getElementById('zoom-out').addEventListener('click', function(){
+      //   zoom('out');
+      // });
+    });
+  </script>
+  <body>
+    <div class="controller" >
+      <button onclick="javascript: zoom('out');">-</button>
+      <button onclick="javascript: zoom('in');">+</button>
+      <!--
+      <button onclick="javascript: update();">U</button>
+      <button onclick="javascript: scroll();">S</button>
+      -->
+      <button onclick="javascript: page('pre');">&lsaquo;</button>
+      <button onclick="javascript: page('next');">&rsaquo;</button>
+    </div>
+    <div class="read-content" id="div1">
+      <h2><span id="Further_reading">Further reading</span><span><span>[</span><a href="https://www.example.com/w/index.php?title=Object-oriented_programming&amp;action=edit&amp;section=28" title="Edit section: Further reading">edit</a><span>]</span></span></h2><ul><li><cite id="CITEREFAbadiLuca_Cardelli1998"><a href="https://www.example.com/wiki/Martin_Abadi" title="Martin Abadi">Abadi, Martin</a>; <a href="https://www.example.com/wiki/Luca_Cardelli" title="Luca Cardelli">Luca Cardelli</a> (1998). <i>A Theory of Objects</i>. <a href="https://www.example.com/wiki/Springer_Verlag" title="Springer Verlag">Springer Verlag</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-387-94775-4" title="Special:BookSources/978-0-387-94775-4"><bdi>978-0-387-94775-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=A+Theory+of+Objects&amp;rft.pub=Springer+Verlag&amp;rft.date=1998&amp;rft.isbn=978-0-387-94775-4&amp;rft.aulast=Abadi&amp;rft.aufirst=Martin&amp;rft.au=Luca+Cardelli&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFAbelsonGerald_Jay_Sussman1997"><a href="https://www.example.com/wiki/Harold_Abelson" title="Harold Abelson">Abelson, Harold</a>; <a href="https://www.example.com/wiki/Gerald_Jay_Sussman" title="Gerald Jay Sussman">Gerald Jay Sussman</a> (1997). <a rel="nofollow" href="http://mitpress.mit.edu/sicp/"><i>Structure and Interpretation of Computer Programs</i></a>. <a href="https://www.example.com/wiki/MIT_Press" title="MIT Press">MIT Press</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-262-01153-2" title="Special:BookSources/978-0-262-01153-2"><bdi>978-0-262-01153-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Structure+and+Interpretation+of+Computer+Programs&amp;rft.pub=MIT+Press&amp;rft.date=1997&amp;rft.isbn=978-0-262-01153-2&amp;rft.aulast=Abelson&amp;rft.aufirst=Harold&amp;rft.au=Gerald+Jay+Sussman&amp;rft_id=http%3A%2F%2Fmitpress.mit.edu%2Fsicp%2F&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFArmstrong2006">Armstrong, Deborah J. (February 2006). "The Quarks of Object-Oriented Development". <i>Communications of the ACM</i>. <b>49</b> (2): 123–128. <a href="https://www.example.com/wiki/Doi_(identifier)" title="Doi (identifier)">doi</a>:<a rel="nofollow" href="https://doi.org/10.1145%2F1113034.1113040">10.1145/1113034.1113040</a>. <a href="https://www.example.com/wiki/ISSN_(identifier)" title="ISSN (identifier)">ISSN</a>&nbsp;<a rel="nofollow" href="https://www.worldcat.org/issn/0001-0782">0001-0782</a>. <a href="https://www.example.com/wiki/S2CID_(identifier)" title="S2CID (identifier)">S2CID</a>&nbsp;<a rel="nofollow" href="https://api.semanticscholar.org/CorpusID:11485502">11485502</a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.jtitle=Communications+of+the+ACM&amp;rft.atitle=The+Quarks+of+Object-Oriented+Development&amp;rft.volume=49&amp;rft.issue=2&amp;rft.pages=123-128&amp;rft.date=2006-02&amp;rft_id=https%3A%2F%2Fapi.semanticscholar.org%2FCorpusID%3A11485502%23id-name%3DS2CID&amp;rft.issn=0001-0782&amp;rft_id=info%3Adoi%2F10.1145%2F1113034.1113040&amp;rft.aulast=Armstrong&amp;rft.aufirst=Deborah+J.&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFBooch1997"><a href="https://www.example.com/wiki/Grady_Booch" title="Grady Booch">Booch, Grady</a> (1997). <a rel="nofollow" href="https://archive.org/details/objectorientedan00booc"><i>Object-Oriented Analysis and Design with Applications</i></a>. <a href="https://www.example.com/wiki/Addison-Wesley" title="Addison-Wesley">Addison-Wesley</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-8053-5340-2" title="Special:BookSources/978-0-8053-5340-2"><bdi>978-0-8053-5340-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+Analysis+and+Design+with+Applications&amp;rft.pub=Addison-Wesley&amp;rft.date=1997&amp;rft.isbn=978-0-8053-5340-2&amp;rft.aulast=Booch&amp;rft.aufirst=Grady&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fobjectorientedan00booc&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFEelesOliver_Sims1998">Eeles, Peter; <a href="https://www.example.com/wiki/Oliver_Sims" title="Oliver Sims">Oliver Sims</a> (1998). <a rel="nofollow" href="https://archive.org/details/buildingbusiness0000eele"><i>Building Business Objects</i></a>. <a href="https://www.example.com/wiki/John_Wiley_%26_Sons" title="John Wiley &amp; Sons">John Wiley &amp; Sons</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-471-19176-6" title="Special:BookSources/978-0-471-19176-6"><bdi>978-0-471-19176-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Building+Business+Objects&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=1998&amp;rft.isbn=978-0-471-19176-6&amp;rft.aulast=Eeles&amp;rft.aufirst=Peter&amp;rft.au=Oliver+Sims&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fbuildingbusiness0000eele&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFGammaRichard_HelmRalph_JohnsonJohn_Vlissides1995"><a href="https://www.example.com/wiki/Erich_Gamma" title="Erich Gamma">Gamma, Erich</a>; <a href="https://www.example.com/wiki/Richard_Helm" title="Richard Helm">Richard Helm</a>; <a href="https://www.example.com/wiki/Ralph_Johnson_(computer_scientist)" title="Ralph Johnson (computer scientist)">Ralph Johnson</a>; <a href="https://www.example.com/wiki/John_Vlissides" title="John Vlissides">John Vlissides</a> (1995). <a rel="nofollow" href="https://archive.org/details/designpatternsel00gamm"><i>Design Patterns: Elements of Reusable Object Oriented Software</i></a>. Addison-Wesley. <a href="https://www.example.com/wiki/Bibcode_(identifier)" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" href="https://ui.adsabs.harvard.edu/abs/1995dper.book.....G">1995dper.book.....G</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-201-63361-0" title="Special:BookSources/978-0-201-63361-0"><bdi>978-0-201-63361-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Design+Patterns%3A+Elements+of+Reusable+Object+Oriented+Software&amp;rft.pub=Addison-Wesley&amp;rft.date=1995&amp;rft_id=info%3Abibcode%2F1995dper.book.....G&amp;rft.isbn=978-0-201-63361-0&amp;rft.aulast=Gamma&amp;rft.aufirst=Erich&amp;rft.au=Richard+Helm&amp;rft.au=Ralph+Johnson&amp;rft.au=John+Vlissides&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fdesignpatternsel00gamm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFHarmonWilliam_Morrissey1996"><a href="https://www.example.com/wiki/Paul_Harmon_(management_author)" title="Paul Harmon (management author)">Harmon, Paul</a>; William Morrissey (1996). <a rel="nofollow" href="https://archive.org/details/objecttechnology00harm"><i>The Object Technology Casebook – Lessons from Award-Winning Business Applications</i></a>. John Wiley &amp; Sons. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-471-14717-6" title="Special:BookSources/978-0-471-14717-6"><bdi>978-0-471-14717-6</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Object+Technology+Casebook+%E2%80%93+Lessons+from+Award-Winning+Business+Applications&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=1996&amp;rft.isbn=978-0-471-14717-6&amp;rft.aulast=Harmon&amp;rft.aufirst=Paul&amp;rft.au=William+Morrissey&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fobjecttechnology00harm&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFJacobson1992"><a href="https://www.example.com/wiki/Ivar_Jacobson" title="Ivar Jacobson">Jacobson, Ivar</a> (1992). <a href="https://www.example.com/wiki/Use_case" title="Use case"><i>Object-Oriented Software Engineering: A Use Case-Driven Approach</i></a>. Addison-Wesley. <a href="https://www.example.com/wiki/Bibcode_(identifier)" title="Bibcode (identifier)">Bibcode</a>:<a rel="nofollow" href="https://ui.adsabs.harvard.edu/abs/1992oose.book.....J">1992oose.book.....J</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-201-54435-0" title="Special:BookSources/978-0-201-54435-0"><bdi>978-0-201-54435-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+Software+Engineering%3A+A+Use+Case-Driven+Approach&amp;rft.pub=Addison-Wesley&amp;rft.date=1992&amp;rft_id=info%3Abibcode%2F1992oose.book.....J&amp;rft.isbn=978-0-201-54435-0&amp;rft.aulast=Jacobson&amp;rft.aufirst=Ivar&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFKay"><a href="https://www.example.com/wiki/Alan_Kay" title="Alan Kay">Kay, Alan</a>. <a rel="nofollow" href="https://web.archive.org/web/20050404075821/http://gagne.homedns.org/~tgagne/contrib/EarlyHistoryST.html"><i>The Early History of Smalltalk</i></a>. Archived from <a rel="nofollow" href="http://gagne.homedns.org/%7etgagne/contrib/EarlyHistoryST.html">the original</a> on 4 April 2005<span>. Retrieved <span>18 April</span> 2005</span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Early+History+of+Smalltalk&amp;rft.aulast=Kay&amp;rft.aufirst=Alan&amp;rft_id=http%3A%2F%2Fgagne.homedns.org%2F%257etgagne%2Fcontrib%2FEarlyHistoryST.html&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFMeyer1997"><a href="https://www.example.com/wiki/Bertrand_Meyer" title="Bertrand Meyer">Meyer, Bertrand</a> (1997). <a href="https://www.example.com/wiki/Object-Oriented_Software_Construction" title="Object-Oriented Software Construction"><i>Object-Oriented Software Construction</i></a>. <a href="https://www.example.com/wiki/Prentice_Hall" title="Prentice Hall">Prentice Hall</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-13-629155-8" title="Special:BookSources/978-0-13-629155-8"><bdi>978-0-13-629155-8</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+Software+Construction&amp;rft.pub=Prentice+Hall&amp;rft.date=1997&amp;rft.isbn=978-0-13-629155-8&amp;rft.aulast=Meyer&amp;rft.aufirst=Bertrand&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFPecinovsky2013">Pecinovsky, Rudolf (2013). <a rel="nofollow" href="http://pub.bruckner.cz/titles/oop"><i>OOP – Learn Object Oriented Thinking &amp; Programming</i></a>. Bruckner Publishing. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-80-904661-8-0" title="Special:BookSources/978-80-904661-8-0"><bdi>978-80-904661-8-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=OOP+%E2%80%93+Learn+Object+Oriented+Thinking+%26+Programming&amp;rft.pub=Bruckner+Publishing&amp;rft.date=2013&amp;rft.isbn=978-80-904661-8-0&amp;rft.aulast=Pecinovsky&amp;rft.aufirst=Rudolf&amp;rft_id=http%3A%2F%2Fpub.bruckner.cz%2Ftitles%2Foop&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFRumbaughMichael_BlahaWilliam_PremerlaniFrederick_Eddy1991"><a href="https://www.example.com/wiki/James_Rumbaugh" title="James Rumbaugh">Rumbaugh, James</a>; Michael Blaha; William Premerlani; Frederick Eddy; William Lorensen (1991). <a rel="nofollow" href="https://archive.org/details/objectorientedmo00rumb"><i>Object-Oriented Modeling and Design</i></a>. Prentice Hall. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-13-629841-0" title="Special:BookSources/978-0-13-629841-0"><bdi>978-0-13-629841-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+Modeling+and+Design&amp;rft.pub=Prentice+Hall&amp;rft.date=1991&amp;rft.isbn=978-0-13-629841-0&amp;rft.aulast=Rumbaugh&amp;rft.aufirst=James&amp;rft.au=Michael+Blaha&amp;rft.au=William+Premerlani&amp;rft.au=Frederick+Eddy&amp;rft.au=William+Lorensen&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fobjectorientedmo00rumb&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFSchach2006">Schach, Stephen (2006). <i>Object-Oriented and Classical Software Engineering, Seventh Edition</i>. <a href="https://www.example.com/wiki/McGraw-Hill" title="McGraw-Hill">McGraw-Hill</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-07-319126-3" title="Special:BookSources/978-0-07-319126-3"><bdi>978-0-07-319126-3</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+and+Classical+Software+Engineering%2C+Seventh+Edition&amp;rft.pub=McGraw-Hill&amp;rft.date=2006&amp;rft.isbn=978-0-07-319126-3&amp;rft.aulast=Schach&amp;rft.aufirst=Stephen&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFSchreiner1993">Schreiner, Axel-Tobias (1993). <i>Object oriented programming with ANSI-C</i>. Hanser. <a href="https://www.example.com/wiki/Hdl_(identifier)" title="Hdl (identifier)">hdl</a>:<a rel="nofollow" href="https://hdl.handle.net/1850%2F8544">1850/8544</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-3-446-17426-9" title="Special:BookSources/978-3-446-17426-9"><bdi>978-3-446-17426-9</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object+oriented+programming+with+ANSI-C&amp;rft.pub=Hanser&amp;rft.date=1993&amp;rft_id=info%3Ahdl%2F1850%2F8544&amp;rft.isbn=978-3-446-17426-9&amp;rft.aulast=Schreiner&amp;rft.aufirst=Axel-Tobias&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFTaylor1992">Taylor, David A. (1992). <a rel="nofollow" href="https://archive.org/details/objectorientedin00tayl"><i>Object-Oriented Information Systems – Planning and Implementation</i></a>. John Wiley &amp; Sons. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-471-54364-0" title="Special:BookSources/978-0-471-54364-0"><bdi>978-0-471-54364-0</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object-Oriented+Information+Systems+%E2%80%93+Planning+and+Implementation&amp;rft.pub=John+Wiley+%26+Sons&amp;rft.date=1992&amp;rft.isbn=978-0-471-54364-0&amp;rft.aulast=Taylor&amp;rft.aufirst=David+A.&amp;rft_id=https%3A%2F%2Farchive.org%2Fdetails%2Fobjectorientedin00tayl&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFWeisfeld2009">Weisfeld, Matt (2009). <i>The Object-Oriented Thought Process, Third Edition</i>. <a href="https://www.example.com/wiki/Addison-Wesley" title="Addison-Wesley">Addison-Wesley</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-672-33016-2" title="Special:BookSources/978-0-672-33016-2"><bdi>978-0-672-33016-2</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Object-Oriented+Thought+Process%2C+Third+Edition&amp;rft.pub=Addison-Wesley&amp;rft.date=2009&amp;rft.isbn=978-0-672-33016-2&amp;rft.aulast=Weisfeld&amp;rft.aufirst=Matt&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li>
+  <li><cite id="CITEREFWest2004">West, David (2004). <i>Object Thinking (Developer Reference)</i>. <a href="https://www.example.com/wiki/Microsoft_Press" title="Microsoft Press">Microsoft Press</a>. <a href="https://www.example.com/wiki/ISBN_(identifier)" title="ISBN (identifier)">ISBN</a>&nbsp;<a href="https://www.example.com/wiki/Special:BookSources/978-0-7356-1965-4" title="Special:BookSources/978-0-7356-1965-4"><bdi>978-0-7356-1965-4</bdi></a>.</cite><span title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Object+Thinking+%28Developer+Reference%29&amp;rft.pub=Microsoft+Press&amp;rft.date=2004&amp;rft.isbn=978-0-7356-1965-4&amp;rft.aulast=West&amp;rft.aufirst=David&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AObject-oriented+programming"></span></li></ul>
+    </div>
+  </body>
+</html>

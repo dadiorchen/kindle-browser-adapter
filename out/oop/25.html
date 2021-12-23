@@ -1,0 +1,120 @@
+<html style="font-size: 16px">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    .controller {
+      position: fixed;
+      border: 1px gray solid;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      padding: .5rem;
+    }
+
+    .controller>button {
+      width: 100px;
+    }
+
+    .read-content {
+      margin-top: 3rem;
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+  <script script >
+    //alert($(window).width());
+    // alert($(window).height());
+    // alert(window.navigator.userAgent)
+    function zoom(mode){
+      const fontSize = window.document.getElementsByTagName('html')[0].style.fontSize.slice(0, -2);
+      const fontSizeNew = (fontSize * (1 + (mode === 'in' ? 0.2 : -0.2))) + 'px';
+      window.document.getElementsByTagName('html')[0].style.fontSize = fontSizeNew; 
+    }
+
+    function scroll(){
+      window.scrollBy(0, 200);
+    }
+
+    function page(dir){
+      const currentPageString = window.location.href.match(/^.*?(\d+)$/)[1];
+      const currentPage = parseInt(currentPageString);
+      const newPage = dir === 'next' ? currentPage + 1 : currentPage - 1;
+      window.location.href = window.location.href = newPage;
+    }
+
+    // function update(){
+    //   window.history.pushState('treetrakcer', '', '#xxxxx');
+    // }
+    // add event listener when page is loaded
+    window.addEventListener('load', function(){
+      // alert("loaded");
+      // alert("cookie: " + document.cookie);
+      // add event listener when user mouse up
+      // window.addEventListener('mouseup', function(){
+      //   alert("mouse up");
+      //   // update();
+      //   const scrollPosition = window.pageYOffset;
+      //   document.cookie = "bookmark=" + scrollPosition;
+      //   // alert("scroll" + $(document).scrollTop());
+      //   var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
+      //   alert("scroll:" + window.scrollY + "|" + window.scrollTop );
+      // });
+
+       //add event listener when user scroll finished
+        window.addEventListener('scrollxxx', function(e){
+          // update();
+          // get the scroll position
+          const scrollPosition = window.pageYOffset;
+          document.cookie = "bookmark=" + scrollPosition;
+         //  alert("scroll" + $(document).scrollTop());
+         const keys = Object.getOwnPropertyNames(e)
+          .sort()
+          .reduce(function(a,c){
+            return a + '|' + c;
+          }, '')
+        // alert("keys:"+ keys);
+        alert("scrollY:" + e.currentTarget.scrollY);
+      });
+      // window.addEventListener('mousewheel', function(e){
+      //   // update();
+      //   // get the scroll position
+      //   // alert("scroll" + $(document).scrollTop());
+      //   alert("e:"+ e);
+      // });
+
+      
+
+      // // add event listener when user click on button
+      // document.getElementById('zoom-in').addEventListener('click', function(){
+      //   zoom('in');
+      // });
+      // document.getElementById('zoom-out').addEventListener('click', function(){
+      //   zoom('out');
+      // });
+    });
+  </script>
+  <body>
+    <div class="controller" >
+      <button onclick="javascript: zoom('out');">-</button>
+      <button onclick="javascript: zoom('in');">+</button>
+      <!--
+      <button onclick="javascript: update();">U</button>
+      <button onclick="javascript: scroll();">S</button>
+      -->
+      <button onclick="javascript: page('pre');">&lsaquo;</button>
+      <button onclick="javascript: page('next');">&rsaquo;</button>
+    </div>
+    <div class="read-content" id="div1">
+      <h2><span id="OOP_languages">OOP languages</span><span><span>[</span><a href="https://www.example.com/w/index.php?title=Object-oriented_programming&amp;action=edit&amp;section=11" title="Edit section: OOP languages">edit</a><span>]</span></span></h2><p><a href="https://www.example.com/wiki/Simula" title="Simula">Simula</a> (1967) is generally accepted as being the first language with the primary features of an object-oriented language. It was created for making <a href="https://www.example.com/wiki/Computer_simulation" title="Computer simulation">simulation programs</a>, in which what came to be called objects were the most important information representation. <a href="https://www.example.com/wiki/Smalltalk" title="Smalltalk">Smalltalk</a> (1972 to 1980) is another early example, and the one with which much of the theory of OOP was developed. Concerning the degree of object orientation, the following distinctions can be made:
+  </p><ul><li>Languages called "pure" OO languages, because everything in them is treated consistently as an object, from primitives such as characters and punctuation, all the way up to whole classes, prototypes, blocks, modules, etc. They were designed specifically to facilitate, even enforce, OO methods. Examples: <a href="https://www.example.com/wiki/Ruby_(programming_language)" title="Ruby (programming language)">Ruby</a>, <a href="https://www.example.com/wiki/Scala_(programming_language)" title="Scala (programming language)">Scala</a>, <a href="https://www.example.com/wiki/Smalltalk" title="Smalltalk">Smalltalk</a>, <a href="https://www.example.com/wiki/Eiffel_(programming_language)" title="Eiffel (programming language)">Eiffel</a>, <a href="https://www.example.com/wiki/Emerald_(programming_language)" title="Emerald (programming language)">Emerald</a>,<sup id="cite_ref-23"><a href="#cite_note-23">[23]</a></sup> <a href="https://www.example.com/wiki/JADE_(programming_language)" title="JADE (programming language)">JADE</a>, <a href="https://www.example.com/wiki/Self_(programming_language)" title="Self (programming language)">Self</a>, <a href="https://www.example.com/wiki/Raku_(programming_language)" title="Raku (programming language)">Raku</a>.</li>
+  <li>Languages designed mainly for OO programming, but with some procedural elements. Examples: <a href="https://www.example.com/wiki/Java_(programming_language)" title="Java (programming language)">Java</a>, <a href="https://www.example.com/wiki/Python_(programming_language)" title="Python (programming language)">Python</a>, <a href="https://www.example.com/wiki/C%2B%2B" title="C++">C++</a>, <a href="https://www.example.com/wiki/C_Sharp_(programming_language)" title="C Sharp (programming language)">C#</a>, <a href="https://www.example.com/wiki/Delphi_(programming_language)" title="Delphi (programming language)">Delphi</a>/<a href="https://www.example.com/wiki/Object_Pascal" title="Object Pascal">Object Pascal</a>, <a href="https://www.example.com/wiki/VB.NET" title="VB.NET">VB.NET</a>.</li>
+  <li>Languages that are historically <a href="https://www.example.com/wiki/Procedural_programming" title="Procedural programming">procedural languages</a>, but have been extended with some OO features. Examples: <a href="https://www.example.com/wiki/PHP" title="PHP">PHP</a>, <a href="https://www.example.com/wiki/Perl" title="Perl">Perl</a>, <a href="https://www.example.com/wiki/Visual_Basic" title="Visual Basic">Visual Basic</a> (derived from BASIC), <a href="https://www.example.com/wiki/MATLAB" title="MATLAB">MATLAB</a>, <a href="https://www.example.com/wiki/COBOL_2002" title="COBOL 2002">COBOL 2002</a>, <a href="https://www.example.com/wiki/Fortran_2003" title="Fortran 2003">Fortran 2003</a>, <a href="https://www.example.com/wiki/ABAP" title="ABAP">ABAP</a>, <a href="https://www.example.com/wiki/Ada_(programming_language)" title="Ada (programming language)">Ada 95</a>, <a href="https://www.example.com/wiki/Pascal_(programming_language)" title="Pascal (programming language)">Pascal</a>.</li>
+  <li>Languages with most of the features of objects (classes, methods, inheritance), but in a distinctly original form. Examples: <a href="https://www.example.com/wiki/Oberon_(programming_language)" title="Oberon (programming language)">Oberon</a> (Oberon-1 or Oberon-2).</li>
+  <li>Languages with <a href="https://www.example.com/wiki/Abstract_data_type" title="Abstract data type">abstract data type</a> support which may be used to resemble OO programming, but without all features of object-orientation. This includes <a href="https://www.example.com/wiki/Object-based" title="Object-based">object-<i>based</i></a> and <a href="https://www.example.com/wiki/Prototype-based_programming" title="Prototype-based programming">prototype-based</a> languages. Examples: <a href="https://www.example.com/wiki/JavaScript" title="JavaScript">JavaScript</a>, <a href="https://www.example.com/wiki/Lua_(programming_language)" title="Lua (programming language)">Lua</a>, <a href="https://www.example.com/wiki/Modula-2" title="Modula-2">Modula-2</a>, <a href="https://www.example.com/wiki/CLU_(programming_language)" title="CLU (programming language)">CLU</a>.</li>
+  <li>Chameleon languages that support multiple paradigms, including OO. <a href="https://www.example.com/wiki/Tcl" title="Tcl">Tcl</a> stands out among these for TclOO, a hybrid object system that supports both <a href="https://www.example.com/wiki/Prototype-based_programming" title="Prototype-based programming">prototype-based programming</a> and class-based OO.</li></ul>
+    </div>
+  </body>
+</html>
