@@ -1,4 +1,5 @@
 const log = require("loglevel");
+const PageSpliter = require("./PageSpliter");
 
 it("page 1", async () => {
 
@@ -429,32 +430,37 @@ it("page 1", async () => {
   <!-- Saved in parser cache with key enwiki:pcache:idhash:27471338-0!canonical and timestamp 20211211065904 and revision id 1057169575. Serialized with JSON.
    --></div></div>`;
 
-  const jsdom = require("jsdom");
-  const { JSDOM } = jsdom;
-  const dom = new JSDOM(`<!DOCTYPE html>
-    <p>Hello world</p>`);
-  log.warn(dom.window.document.querySelector("p").textContent);
-
+  const pageSpliter = new PageSpliter(html, {
+    lettersPerLine: 40,
+    linesPerPage: 15,
+  });
+  expect(pageSpliter.getPageCount()).toBe(88);
 })
 
 
 it.only("try jsdom", async () => {
-  const jsdom = require("jsdom");
-  const { JSDOM } = jsdom;
-  const dom = new JSDOM(`
+  const html = `
     <!DOCTYPE html>
     <body>
-    <p>1234567890123456789012345678901234567890</p>
+    <p>12345678901234567890123456789012345678901234567890</p>
     <p>line2</p>
     </body>
     </html>
-  `);
-  const content = dom.window.document.querySelector("body").textContent
-  const lines = content.split("\n").filter(line => !line.match(/^\s*$/));
-  log.warn("lines:", lines);
-  const LETTER_PER_LINE = 40;
-  const lineNumber = lines.reduce((a, c) => {
-    return a + Math.ceil(c.length / LETTER_PER_LINE);
-  }, 0);
-  expect(lineNumber).toBe(3);
+  `;
+
+  const paperSpliter = new PageSpliter(html, {
+    lettersPerLine: 40,
+    linesPerPage: 2,
+  })
+  expect(paperSpliter.getPageCount()).toBe(2);
+  expect(paperSpliter.getPage(0)).toMatch(/\<p\>\w+\<\/p\>/);
+  expect(paperSpliter.getPage(1)).toMatch(/\<p\>\w+\<\/p\>/);
 })
+
+
+
+
+
+
+
+

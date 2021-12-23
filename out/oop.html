@@ -12,7 +12,11 @@
       width: 100%;
       top: 0px;
       left: 0px;
-      padding: 1rem;
+      padding: .5rem;
+    }
+
+    .controller>button {
+      width: 150px;
     }
 
     .read-content {
@@ -32,6 +36,12 @@
 
     function scroll(){
       window.scrollBy(0, 200);
+    }
+
+    function page(dir){
+      const currentPage = window.location.href.split('/').pop();
+      const newPage = dir === 'next' ? currentPage + 1 : currentPage - 1;
+      window.location.href = window.location.href.replace(currentPage, newPage);
     }
 
     // function update(){
@@ -91,6 +101,8 @@
       <button onclick="javascript: zoom('in');">+</button>
       <button onclick="javascript: update();">U</button>
       <button onclick="javascript: scroll();">S</button>
+      <button onclick="javascript: page('pre');">&rsaquo;</button>
+      <button onclick="javascript: page('next');">&lsaquo;</button>
     </div>
     <div class="read-content" id="div1">
       <div id="readability-page-1" class="page"><div id="mw-content-text" lang="en" dir="ltr">
