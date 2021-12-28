@@ -6,6 +6,11 @@
       font-size: 2rem;
     }
 
+    .box1 {
+      height: 95%;
+      overflow: hidden;
+    }
+
     .controller {
       position: fixed;
       border: 1px gray solid;
@@ -13,6 +18,7 @@
       top: 0px;
       left: 0px;
       padding: .5rem;
+      background: white;
     }
 
     .controller>button {
@@ -20,11 +26,13 @@
     }
 
     .read-content {
-      margin-top: 3rem;
+      margin-top: 0rem;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
   <script script >
+    //alert(document.cookie);
+    var mt;
     //alert($(window).width());
     // alert($(window).height());
     // alert(window.navigator.userAgent)
@@ -39,76 +47,38 @@
     }
 
     function page(dir){
-      const currentPageString = window.location.href.match(/^.*?(\d+)$/)[1];
-      const currentPage = parseInt(currentPageString);
-      const newPage = dir === 'next' ? currentPage + 1 : currentPage - 1;
-      window.location.href = window.location.href = newPage;
+      mt -= dir === 'next' ? 10 : -10;
+      document.getElementById('div1').style.marginTop = mt + 'rem';
+      document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
     }
 
-    // function update(){
-    //   window.history.pushState('treetrakcer', '', '#xxxxx');
-    // }
-    // add event listener when page is loaded
     window.addEventListener('load', function(){
-      // alert("loaded");
-      // alert("cookie: " + document.cookie);
-      // add event listener when user mouse up
-      // window.addEventListener('mouseup', function(){
-      //   alert("mouse up");
-      //   // update();
-      //   const scrollPosition = window.pageYOffset;
-      //   document.cookie = "bookmark=" + scrollPosition;
-      //   // alert("scroll" + $(document).scrollTop());
-      //   var scrollPos = window.scrollY || window.scrollTop || document.getElementsByTagName("html")[0].scrollTop;
-      //   alert("scroll:" + window.scrollY + "|" + window.scrollTop );
-      // });
-
-       //add event listener when user scroll finished
-        window.addEventListener('scrollxxx', function(e){
-          // update();
-          // get the scroll position
-          const scrollPosition = window.pageYOffset;
-          document.cookie = "bookmark=" + scrollPosition;
-         //  alert("scroll" + $(document).scrollTop());
-         const keys = Object.getOwnPropertyNames(e)
-          .sort()
-          .reduce(function(a,c){
-            return a + '|' + c;
-          }, '')
-        // alert("keys:"+ keys);
-        alert("scrollY:" + e.currentTarget.scrollY);
-      });
-      // window.addEventListener('mousewheel', function(e){
-      //   // update();
-      //   // get the scroll position
-      //   // alert("scroll" + $(document).scrollTop());
-      //   alert("e:"+ e);
-      // });
-
-      
-
-      // // add event listener when user click on button
-      // document.getElementById('zoom-in').addEventListener('click', function(){
-      //   zoom('in');
-      // });
-      // document.getElementById('zoom-out').addEventListener('click', function(){
-      //   zoom('out');
-      // });
+      const m = document.cookie.match(/bookmark=(-?[0-9]+)/);
+      if(m){
+        mt = parseInt(m[1]);
+        document.getElementById('div1').style.marginTop = mt + 'px';  
+        document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
+      }else{
+        mt = 0;
+        document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
+      }
     });
   </script>
   <body>
-    <div class="controller" >
-      <button onclick="javascript: zoom('out');">-</button>
-      <button onclick="javascript: zoom('in');">+</button>
-      <!--
-      <button onclick="javascript: update();">U</button>
-      <button onclick="javascript: scroll();">S</button>
-      -->
-      <button onclick="javascript: page('pre');">&lsaquo;</button>
-      <button onclick="javascript: page('next');">&rsaquo;</button>
-    </div>
-    <div class="read-content" id="div1">
-      ${content}
+    <div class="box1" >
+      <div class="controller" >
+        <button onclick="javascript: zoom('out');">-</button>
+        <button onclick="javascript: zoom('in');">+</button>
+        <!--
+        <button onclick="javascript: update();">U</button>
+        <button onclick="javascript: scroll();">S</button>
+        -->
+        <button onclick="javascript: page('pre');">&lsaquo;</button>
+        <button onclick="javascript: page('next');">&rsaquo;</button>
+      </div>
+      <div class="read-content" id="div1">
+        ${content}
+      </div>
     </div>
   </body>
 </html>

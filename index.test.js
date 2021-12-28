@@ -60,12 +60,11 @@ function extractName(url) {
   return imageName;
 }
 
-it.only("read oop html, get reader mode content, output to a file", async () => {
+async function readable(html, path, fileName) {
   const fs = require("fs");
   var { Readability } = require('@mozilla/readability');
   var { JSDOM } = require('jsdom');
   //read simple.html
-  const html = fs.readFileSync("oop.html", "utf8");
   const doc = new JSDOM(html, {
     url: "https://www.example.com/the-page-i-got-the-source-from"
   });
@@ -76,17 +75,17 @@ it.only("read oop html, get reader mode content, output to a file", async () => 
     content: expect.stringMatching(/^<div id="readability-page-1"/),
   })
 
-  let {content} = article;
+  let { content } = article;
 
   const imgs = content.match(/<img[^>]*?src="([^"]*?)"[^>]*?>/g);
   expect(imgs).toHaveLength(3);
-  for(let img of imgs) {
+  for (let img of imgs) {
     const url0 = img.match(/src="([^"]*?)"/)[1];
     expect(url0).toMatch(/^https?:\/\//);
     const imageName = extractName(url0);
     log.warn("image url:", url0);
-    const path = `./out/${imageName}`;
-    await download_image(url0, path);
+    const pathFile = `./${path}/${imageName}`;
+    await download_image(url0, pathFile);
     const index = content.search(url0);
     expect(index).toBeGreaterThan(1);
     content = content.replace(url0, `./${imageName}`);
@@ -98,7 +97,18 @@ it.only("read oop html, get reader mode content, output to a file", async () => 
   const result = template.replace("${content}", content);
 
   //write result to oop.readability.html
-  fs.writeFileSync("out/oop.html", result);
+  fs.writeFileSync(`${path}/${fileName}`, result);
+}
+
+it.skip("read oop html, get reader mode content, output to a file", async () => {
+  const html = fs.readFileSync("oop.html", "utf8");
+  readable(html, "out", "oop.html");
+
+});
+
+it.only("read fp html, get reader mode content, output to a file", async () => {
+  const html = fs.readFileSync("fp.html", "utf8");
+  readable(html, "out", "fp.html");
 
 });
 
