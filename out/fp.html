@@ -12,6 +12,7 @@
     }
 
     .controller {
+      display: none;
       position: fixed;
       border: 1px gray solid;
       width: 100%;
@@ -27,6 +28,13 @@
 
     .read-content {
       margin-top: 0rem;
+    }
+
+    .bottom {
+      position: absolute;
+      bottom: 25px;
+      left: 15px;
+      font-size: 14px;
     }
   </style>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
@@ -50,17 +58,52 @@
       mt -= dir === 'next' ? 10 : -10;
       document.getElementById('div1').style.marginTop = mt + 'rem';
       document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
+      updatePosition();
     }
 
+    function updatePosition(){
+      const position = 
+        Math.round(
+          (
+            (
+              //1 - 
+              Math.abs(
+                document.cookie.match(/bookmark=(-?\d+)/)[1]
+              )/document.getElementById('div1').clientHeight
+            ) * 100
+          )) + '%';
+      document.getElementById('bottom').innerHTML = position;
+    }
     window.addEventListener('load', function(){
       const m = document.cookie.match(/bookmark=(-?[0-9]+)/);
       if(m){
         mt = parseInt(m[1]);
         document.getElementById('div1').style.marginTop = mt + 'px';  
         document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
+        updatePosition();
       }else{
         mt = 0;
         document.cookie = "bookmark=" + mt + ";expires=Thu, 18 Dec 2023 12:00:00 UTC";;
+      }
+
+      document.getElementById("div1").addEventListener('click', function(e){
+        //console.log(e);
+        // alert(e.screenY);
+        if(window.innerHeight / 3 < e.screenY ){
+          mt -= 100;
+        }else{
+          mt += 100;
+        }
+        document.getElementById('div1').style.marginTop = mt + 'px';
+        document.cookie = "bookmark=" + mt;
+        updatePosition();
+      });
+
+      // disable all href
+      //document.querySelectorAll('a').forEach(a => a.href = 'javascript:void(0)' );
+      const as = document.getElementsByTagName('a');//.forEach(a => a.href = 'javascript:void(0)' );
+      for(var i = 0; i < as.length; i++){
+        as[i].href = 'javascript:void(0)';
       }
     });
   </script>
@@ -499,6 +542,8 @@ Transclusion expansion time report (%,ms,calls,template)
 <!-- Saved in parser cache with key enwiki:pcache:idhash:10933-0!canonical and timestamp 20211226201204 and revision id 1059406385. Serialized with JSON.
  -->
 </div></div>
+      </div>
+      <div class="bottom" id="bottom">
       </div>
     </div>
   </body>

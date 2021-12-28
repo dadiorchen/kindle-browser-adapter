@@ -2,11 +2,21 @@
   <script>
     alert(document.cookie);
     var mt = 0;
+    function updatePosition(){
+      const position = 
+        Math.round(
+          (
+            (
+              1 - 
+              Math.abs(
+                document.cookie.match(/bookmark=(-?\d+)/)[1]
+              )/document.getElementById('div1').clientHeight
+            ) * 100
+          )) + '%';
+      document.getElementById('bottom').innerHTML = position;
+    }
     function clickdiv(e) {
       console.log(e);
-      mt -= 100;
-      document.getElementById('div1').style.marginTop = mt + 'px';
-      document.cookie = "bookmark=" + mt;
     }
 
     window.addEventListener('load', function(){
@@ -14,13 +24,34 @@
       if(m){
         mt = parseInt(m[1]);
         document.getElementById('div1').style.marginTop = mt + 'px';  
+        updatePosition();
       }
+
+      document.getElementById("div1").addEventListener('click', function(e){
+        //console.log(e);
+        alert(e.screenY);
+        if(window.innerHeight / 3 < e.screenY ){
+          mt += 100;
+        }else{
+          mt -= 100;
+        }
+        document.getElementById('div1').style.marginTop = mt + 'px';
+        document.cookie = "bookmark=" + mt;
+        updatePosition();
+      });
+
+      //document.querySelectorAll('a').forEach(a => a.href = 'javascript:void(0)' );
+      const as = document.getElementsByTagName('a');//.forEach(a => a.href = 'javascript:void(0)' );
+      for(var i = 0; i < as.length; i++){
+        as[i].href = 'javascript:void(0)';
+      }
+
     });
 
   </script>
   <body>
     <div style="height:90%;overflow:hidden;">
-      <div id="div1" onclick="clickdiv();" style="margin-top: -100px">
+      <div id="div1"  style="margin-top: -100px">
         <div>test1</div>
         <div>test2</div>
         <div>test</div>
@@ -128,11 +159,50 @@
         <div>test</div>
         <div>test</div>
         <div>test</div>
+        <a href="http://www.baidu.com" >baidu</a>
         <div>test</div>
         <div>test</div>
         <div>test</div>
         <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>test</div>
+        <div>testbbbb</div>
       </div>
+    </div>
+    <div class="bottom" id="bottom">
+      50%
     </div>
   </body>
 </html>
